@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blogy</h1>
+    {% if posty %}
+    <h2>Posts:</h2>
+    
+        {% for post in posty %}
+        <h3>{{post.nadpis}}</h3>
+        <h4>{{post.autor}}</h4>
+        <p>Create date: {{post.create_date}}</p>
+        <p>Publish date: {{post.publish_date}}</p>
+        <p>{{post.text}}</p>
+        
+        {% endfor %}
+    
+    {% endif %}
+
+    {% if autors %}
+    <h2>Autors:</h2>
+    <ul>
+        {% for autor in autors %}
+        <li>{{autor}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if categories %}
+    <h2>Categories:</h2>
+    <ul>
+        {% for category in categories %}
+        <li>{{category}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
