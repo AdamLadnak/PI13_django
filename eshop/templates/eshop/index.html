@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nábytok</title>
+    <style>
+        body{margin-left: 100px; margin-right: 100px; background-color: lightgrey; }
+        h1{
+            font-size: 200%;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Nábytok</h1>
+    {% if categories %}
+    <h2>Kategórie:</h2>
+    <ul>
+        {% for category in categories %}
+        <li>{{category}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if products %}
+    <h2>Produkty:</h2>
+    {% for product in products %}
+        <h4>{{product.name}}</h4>
+    <ul>
+        <li><strong>Kategória: </strong>{{product.category}}</li>
+        <li><strong>Cena: </strong>{{product.price}} €</li>
+        <li><strong>Popis: </strong>{{product.description}}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    
+
+
+    {% if customers %}
+    <h2>Zákazníci:</h2>
+    <ul>
+        {% for customer in customers %}
+        <li>{{customer}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if orders %}
+    <h2>Objednávky:</h2>
+    <ul>
+        {% for order in orders %}
+        <li>Zákazník: {{order.customer}}</li>
+        <li>Produkt: {{order.order.name}}</li>
+        <li>Čas vytvorenia: {{order.date}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
