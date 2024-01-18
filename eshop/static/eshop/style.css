@@ -4,6 +4,21 @@ body{
     background-color: lightgrey; 
 }
 h1{
-    font-size: 200%;
+    font-size: 225%;
     text-align: center;
+    color: darkred;
+    background-color: darkorange;
+}
+.Img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
+.item {
+    justify-content: center;
 }

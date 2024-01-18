@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nábytok</title>
     <link rel="stylesheet" href="{% static 'eshop/style.css'%}">
+    <link rel="icon" href="{% static 'eshop/sofa_icon.ico'%}">
 </head>
 <body>
     <h1>Nábytok</h1>
+    {% if  products %}
+    <div class="Img">
+        <img src="{% static 'eshop/sedacia-suprava.png' %}" alt="sedacia súprava" title="sedacia súprava">
+    </div>
+    {% endif %}
+    
     {% if categories %}
+    <div class="grid-container">
     <h2>Kategórie:</h2>
     <ul>
         {% for category in categories %}
         <li>{{category}}</li>
         {% endfor %}
     </ul>
+    </div>
     {% endif %}
 
     {% if products %}
@@ -33,23 +42,31 @@
 
 
     {% if customers %}
+    <div class="grid-container">
     <h2>Zákazníci:</h2>
-    <ul>
-        {% for customer in customers %}
-        <li>{{customer}}</li>
-        {% endfor %}
-    </ul>
+        <ul>
+            {% for customer in customers %}
+            <li>{{customer}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
     {% endif %}
 
     {% if orders %}
-    <h2>Objednávky:</h2>
-    <ul>
+    
+    <div class="grid-container">
+        <h2>Objednávky:</h2>
         {% for order in orders %}
-        <li>Zákazník: {{order.customer}}</li>
-        <li>Produkt: {{order.order.name}}</li>
-        <li>Čas vytvorenia: {{order.date}}</li>
+            <ul>
+                <li>Objednávka číslo {{order.cislo}}</li>
+                <li>Zákazník: {{order.customer}}</li>
+                <li>Produkt: {{order.order.name}}</li>
+                <li>Čas vytvorenia: {{order.date}}</li>
+            </ul>
         {% endfor %}
-    </ul>
+    </div>
+    
     {% endif %}
 </body>
 </html>

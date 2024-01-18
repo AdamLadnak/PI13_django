@@ -1,0 +1,17 @@
+body {
+    background-color: lightgreen;
+    font-size: 125%;
+}
+h1 {
+    background-color: darkblue;
+    color: lightgreen;
+    text-align: center;
+    font-size: 200%;
+}
+.item {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin-top: 20px;
+    padding: 10px;
+}

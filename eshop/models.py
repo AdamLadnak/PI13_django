@@ -21,9 +21,9 @@ class Customer(models.Model):
         return f"{self.name} {self.surname}"
     
 class Order(models.Model):
+    cislo = models.DecimalField(decimal_places=0, max_digits=4, null=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
     order = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return f"{self.customer} {self.order} {self.date}"
-
+        return f"{self.cislo} {self.customer} {self.order} {self.date}"

@@ -30,20 +30,24 @@
 
     {% if autors %}
     <h2>Autors:</h2>
+    <div class="post">
     <ul>
         {% for autor in autors %}
         <li>{{autor}}</li>
         {% endfor %}
     </ul>
+    </div>
     {% endif %}
 
     {% if categories %}
     <h2>Categories:</h2>
+    <div class="post">
     <ul>
         {% for category in categories %}
         <li>{{category}}</li>
         {% endfor %}
     </ul>
+    </div>
     {% endif %}
 </body>
 </html>
