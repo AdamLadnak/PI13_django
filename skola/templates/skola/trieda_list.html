@@ -8,31 +8,26 @@
     <link rel="stylesheet" href="{% static 'skola/style.css'%}">
 </head>
 <body>
-    <h1>Moja škola</h1>
-    <img src="{% static 'skola/spsit.png'%}" title="spsit" alt="spsit">
-    {% if triedy %}
-    <div class="item">
-        <h2><a href="{% url 'triedy' %}">Triedy:</a></h2>
-        <ul>
-            {% for trieda in triedy %}
-            <li><a href="{% url 'trieda' trieda=trieda %}">{{trieda}}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% if trieda %}
+    <h1>{{trieda}}</h1>
     {% endif %}
-    {% if ucitelia %}
+
+
+
+
+    <img src="{% static 'skola/spsit.png'%}" title="spsit" alt="spsit">
+    
+    {% if ucitel %}
     <div class="item">
-        <h2><a href="{% url 'ucitelia' %}">Učitelia:</a></h2>
+        <h2>Triedny učiteľ</h2>
         <ul>
-            {% for ucitel in ucitelia %}
             <li>{{ucitel}}</li>
-            {% endfor %}
         </ul>
     </div>
     {% endif %}
     {% if studenti %}
     <div class="item">
-        <h2><a href="{% url 'studenti' %}">Študenti:</a></h2>
+        <h2>Študenti:</h2>
         <ul>
             {% for student in studenti %}
             <li>{{student}}</li>
