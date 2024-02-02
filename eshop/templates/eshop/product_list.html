@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nábytok</title>
+    <link rel="stylesheet" href="{% static 'eshop/style.css'%}">
+    <link rel="icon" href="{% static 'eshop/sofa_icon.ico'%}">
+</head>
+<body>
+    <h1>Nábytok</h1>
+    {% if  products %}
+    <div class="Img">
+        <img src="{% static 'eshop/sedacia-suprava.png' %}" alt="sedacia súprava" title="sedacia súprava">
+    </div>
+    {% endif %}
+
+
+    {% if products %}
+    <h2>{{category}}</h2> 
+    {% for product in products %}
+        <h4>
+            <a href="{% url 'product' product=product %}">
+                {{product.name}}
+            </a>
+        </h4>
+        <h5>Cena: {{product.price}} €</h5>
+    {% endfor %}
+    {% endif %}
+    
+</body>
+</html>

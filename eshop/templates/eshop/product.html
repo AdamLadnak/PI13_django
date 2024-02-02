@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nábytok</title>
+    <link rel="stylesheet" href="{% static 'eshop/style.css'%}">
+    <link rel="icon" href="{% static 'eshop/sofa_icon.ico'%}">
+</head>
+<body>
+    <h1>Nábytok</h1>
+
+    <h2>{{product.name}}</h2>
+    <ul>
+        <li><strong>Kategória: </strong>{{product.category}}</li>
+        <li><strong>Cena: </strong>{{product.price}} €</li>
+        <li><strong>Popis: </strong>{{product.description}}</li>
+    </ul>
+    
+</body>
+</html>
