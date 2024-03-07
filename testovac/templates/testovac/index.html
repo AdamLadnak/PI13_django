@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testovač</title>
+    <link rel="stylesheet" href="{% static 'testovac/style.css'%}">
+</head>
+<body>
+    <h1>Vypočítaj:</h1>
+    {% if priklad.a and priklad.operator and priklad.b %}
+    <form method="POST">
+        {% csrf_token %}
+        <h2>{{priklad.a}} {{priklad.operator}} {{priklad.b}} = ?</h2>
+        <input type="text" name="vysledok">
+        {% if vysledok == 'Správne!!!' %}
+        <h3>{{vysledok}}</h3>
+        {% else %}
+        <h3>{{vysledok}}</h3>
+        {% endif %}
+        <input type="hidden" name="spravny_vysledok" value="{{priklad.vysledok}}">
+        <input type="submit">
+        
+    </form>
+    {% endif %}
+
+</body>
+</html>

@@ -23,4 +23,6 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('eshop/', include('eshop.urls')),
     path('calc/', include('calc.urls')),
+    path('testovac/', include('testovac.urls')),
+    path('calc2/', include('calc2.urls')),
 ]

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'eshop',
     'calc',
+    'testovac',
+    'calc2',
 ]
 
 MIDDLEWARE = [
