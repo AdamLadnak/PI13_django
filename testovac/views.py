@@ -3,11 +3,12 @@ import random
 from calc2.models import *
 
 def testovac(request):
+    global priklad
     
-    priklady = Priklad.objects.all()
-    priklad = random.choice(priklady)
 
     if request.method == "GET":
+        priklady = Priklad.objects.all()
+        priklad = random.choice(priklady)
         return render(request, "testovac/index.html", {"priklad": priklad})
 
     else:

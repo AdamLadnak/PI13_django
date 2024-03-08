@@ -53,3 +53,11 @@ form {
     border-radius: 50px;
     padding: 100px;
 }
+a {
+    color: darkred;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+a:hover {
+    color: purple;
+}
