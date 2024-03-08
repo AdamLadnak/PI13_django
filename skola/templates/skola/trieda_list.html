@@ -1,37 +1,24 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'skola/style.css'%}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     {% if trieda %}
-    <h1>{{trieda}}</h1>
+    <div class="container pt-3">
+    <h2>Trieda: {{trieda}}</h2>
     {% endif %}
-
-
-    <img src="{% static 'skola/spsit.png'%}" title="spsit" alt="spsit">
     
     {% if ucitel %}
     <div class="item">
-        <h2>Triedny učiteľ</h2>
-        <ul>
-            <li>{{ucitel}}</li>
-        </ul>
+        <p>Triedny učiteľ: {{ucitel}}</p>
     </div>
     {% endif %}
     {% if studenti %}
     <div class="item">
-        <h2>Študenti:</h2>
-        <ul>
+        <h3>Študenti:</h3>
+        <ul class="list-group">
             {% for student in studenti %}
-            <li>{{student}}</li>
+            <li class="list-group-item">{{student}}</li>
             {% endfor %}
         </ul>
     </div>
+    </div>
     {% endif %}
-</body>
-</html>
+{% endblock  %}
