@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if student %}
+    <div class="container pt-3">
+    <h2>Študent: {{student}}</h2>
+    {% endif %}
+    
+    {% if trieda %}
+    <div class="item">
+        <p>Trieda: {{trieda}}</p>
+    </div>
+    {% endif %}
+
+    {% if ucitel %}
+    <div class="item">
+        <p>Triedny učiteľ: {{ucitel}}</p>
+    </div>
+    {% endif %}
+    </div>
+
+{% endblock  %}

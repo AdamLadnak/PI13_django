@@ -7,7 +7,6 @@ def vypis_skola(request):
     studenti = Student.objects.all().order_by("priezvisko")
     return render(request, "skola/index.html", {"triedy":triedy, "ucitelia":ucitelia, "studenti":studenti})
     
-
 def vypis_students(request):
     studenti = Student.objects.all().order_by("priezvisko")
     return render(request, "skola/index.html", {"studenti":studenti })
@@ -30,3 +29,14 @@ def vypis_trieda(request, trieda):
     ucitel = f"{ucitel.titul} {ucitel.meno} {ucitel.priezvisko}"
     # return HttpResponse(f"{trieda}<br>{ucitel}<br>{studenti_list}")
     return render(request, "skola/trieda_list.html", {"trieda":trieda, "ucitel":ucitel, "studenti":studenti_list})
+
+def vypis_ucitel(request, ucitel):
+    ucitel = Ucitel.objects.get(id=ucitel)
+    trieda = Trieda.objects.get(nazov=ucitel.trieda)
+    return render(request, "skola/ucitel_detail.html", {"trieda":trieda, "ucitel":ucitel})
+
+def vypis_student(request, student):
+    student = Student.objects.get(id=student)
+    trieda = Trieda.objects.get(nazov = student.trieda)
+    ucitel = Ucitel.objects.get(trieda = trieda.id)
+    return render(request, "skola/student_detail.html", {"trieda":trieda, "ucitel":ucitel, "student":student})
