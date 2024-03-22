@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container pt-3">
+    {% if kruzok %}
+    <h2>Krúžok: {{kruzok}}</h2>
+    {% endif %}
+    
+    {% if ucitel %}
+    <div class="item">
+        <p>Učiteľ krúžku: {{ucitel}}</p>
+    </div>
+    {% endif %}
+    {% if studenti %}
+    <div class="item">
+        <h3>Študenti:</h3>
+        <ul class="list-group">
+            {% for student in studenti %}
+            <li class="list-group-item">{{student}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    </div>
+{% endblock  %}

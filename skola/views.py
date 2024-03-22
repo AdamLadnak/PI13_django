@@ -5,7 +5,8 @@ def vypis_skola(request):
     triedy = Trieda.objects.all().order_by("nazov")
     ucitelia = Ucitel.objects.all().order_by("priezvisko")
     studenti = Student.objects.all().order_by("priezvisko")
-    return render(request, "skola/index.html", {"triedy":triedy, "ucitelia":ucitelia, "studenti":studenti})
+    kruzky = Kruzok.objects.all().order_by("nazov")
+    return render(request, "skola/index.html", {"triedy":triedy, "ucitelia":ucitelia, "studenti":studenti, "kruzky":kruzky})
     
 def vypis_students(request):
     studenti = Student.objects.all().order_by("priezvisko")
@@ -18,6 +19,10 @@ def vypis_triedy(request):
 def vypis_ucitelov(request):
     ucitelia = Ucitel.objects.all().order_by("priezvisko")
     return render(request, "skola/index.html", {"ucitelia":ucitelia })
+
+def vypis_kruzky(request):
+    kruzky = Kruzok.objects.all().order_by("nazov")
+    return render(request, "skola/index.html", {"kruzky":kruzky })
 
 def vypis_trieda(request, trieda):
     trieda_obj = Trieda.objects.get(nazov=trieda)
@@ -40,3 +45,9 @@ def vypis_student(request, student):
     trieda = Trieda.objects.get(nazov = student.trieda)
     ucitel = Ucitel.objects.get(trieda = trieda.id)
     return render(request, "skola/student_detail.html", {"trieda":trieda, "ucitel":ucitel, "student":student})
+
+def vypis_kruzok(request, kruzok):
+    kruzok = Kruzok.objects.get(id=kruzok)
+    ucitel = Ucitel.objects.get(kruzok=kruzok.id)
+    studenti = Student.objects.filter(kruzok=kruzok.pk)
+    return render(request, "skola/kruzok_detail.html", {"kruzok":kruzok, "ucitel":ucitel, "studenti":studenti})
