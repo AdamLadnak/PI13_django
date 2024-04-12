@@ -38,7 +38,11 @@ def vypis_trieda(request, trieda):
 def vypis_ucitel(request, ucitel):
     ucitel = Ucitel.objects.get(id=ucitel)
     trieda = Trieda.objects.get(nazov=ucitel.trieda)
-    return render(request, "skola/ucitel_detail.html", {"trieda":trieda, "ucitel":ucitel})
+    try:
+        kruzok = Kruzok.objects.get(ucitel = ucitel.pk)
+    except:
+        kruzok = ""
+    return render(request, "skola/ucitel_detail.html", {"trieda":trieda, "ucitel":ucitel, "kruzok":kruzok})
 
 def vypis_student(request, student):
     student = Student.objects.get(id=student)

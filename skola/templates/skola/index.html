@@ -16,7 +16,7 @@
         <h2>Učitelia:</h2>
         <ul class="list-group">
             {% for ucitel in ucitelia %}
-            <li class="list-group-item">{{ucitel}}</li>
+            <li class="list-group-item"><a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'ucitel' ucitel=ucitel.id %}">{{ucitel}}</a></li>
             {% endfor %}
         </ul>
     </div>

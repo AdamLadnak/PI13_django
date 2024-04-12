@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if student %}
-    <div class="container pt-3">
-    <h2>Študent: {{student}}</h2>
+<div class="container pt-3">
+    {% if ucitel %}
+    <h2>Učiteľ: {{ucitel}}</h2>
     {% endif %}
-    
+
     {% if trieda %}
     <div class="item">
         <p>Trieda: {{trieda}}</p>
     </div>
     {% endif %}
 
-    {% if ucitel %}
+    {% if kruzok %}
     <div class="item">
-        <p>Triedny učiteľ: {{ucitel}}</p>
+        <h2>Krúžok: {{kruzok}}</h2>
     </div>
     {% endif %}
-    </div>
-
+</div>
 {% endblock  %}
