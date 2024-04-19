@@ -2,19 +2,26 @@
 {% block content %}
     {% if student %}
     <div class="container pt-3">
-    <h2>Študent: {{student}}</h2>
+    <h2>Študent: {{student.meno}} {{student.priezvisko}}</h2>
     {% endif %}
     
     {% if trieda %}
     <div class="item">
-        <p>Trieda: {{trieda}}</p>
+        <p>Trieda: <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'trieda' trieda=trieda %}">{{trieda}}</a></p>
     </div>
     {% endif %}
 
     {% if ucitel %}
     <div class="item">
-        <p>Triedny učiteľ: {{ucitel}}</p>
+        <p>Triedny učiteľ: <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'ucitel' ucitel=ucitel.id %}">{{ucitel.titul}} {{ucitel.meno}} {{ucitel.priezvisko}}</a></p>
     </div>
+    {% endif %}
+    {% if kruzok %}
+    {% for kruzok in kruzok %}
+    <div class="item">
+        <p>Krúžok: <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'kruzok' kruzok=kruzok.id %}">{{kruzok}}</a></p>
+    </div>
+    {% endfor %}
     {% endif %}
     </div>
 

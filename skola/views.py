@@ -48,7 +48,8 @@ def vypis_student(request, student):
     student = Student.objects.get(id=student)
     trieda = Trieda.objects.get(nazov = student.trieda)
     ucitel = Ucitel.objects.get(trieda = trieda.id)
-    return render(request, "skola/student_detail.html", {"trieda":trieda, "ucitel":ucitel, "student":student})
+    kruzok = Kruzok.objects.filter(student = student)
+    return render(request, "skola/student_detail.html", {"trieda":trieda, "ucitel":ucitel, "student":student, "kruzok":kruzok})
 
 def vypis_kruzok(request, kruzok):
     kruzok = Kruzok.objects.get(id=kruzok)

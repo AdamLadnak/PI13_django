@@ -49,7 +49,10 @@ class Student(models.Model):
     priezvisko = models.CharField(max_length=20)
     trieda = models.ForeignKey(Trieda, on_delete=models.SET_NULL, null=True, blank=True)
     kruzok = models.ManyToManyField(Kruzok, blank=True)
-
+    ulica = models.CharField(max_length=50)
+    psc = models.CharField(max_length=6)
+    obec = models.CharField(max_length=40)
+    
     def __str__(self):
         return f"{self.meno} {self.priezvisko} {self.trieda}"
     

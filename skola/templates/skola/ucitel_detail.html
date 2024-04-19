@@ -2,18 +2,18 @@
 {% block content %}
 <div class="container pt-3">
     {% if ucitel %}
-    <h2>Učiteľ: {{ucitel}}</h2>
+    <h2>Učiteľ: {{ucitel.titul}} {{ucitel.meno}} {{ucitel.priezvisko}}</h2>
     {% endif %}
 
     {% if trieda %}
     <div class="item">
-        <p>Trieda: {{trieda}}</p>
+        <p>Trieda: <a class="link-offset-2 link-underline link-underline-opacity-0" href="{% url 'trieda' trieda=trieda %}">{{trieda}}</a></p>
     </div>
     {% endif %}
 
     {% if kruzok %}
     <div class="item">
-        <h2>Krúžok: {{kruzok}}</h2>
+        <p>Krúžok: {{kruzok}}</p>
     </div>
     {% endif %}
 </div>
