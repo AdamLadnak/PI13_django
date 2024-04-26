@@ -3,6 +3,8 @@
 <div class="container pt-3">
     {% if ucitel %}
     <h2>Učiteľ: {{ucitel.titul}} {{ucitel.meno}} {{ucitel.priezvisko}}</h2>
+    <p>Bydlisko: {{ucitel.ulica}}, {{ucitel.obec}} {{ucitel.psc}}</p>
+    <p>Dátum narodenia: {{ucitel.datum_narodenia}}</p>
     {% endif %}
 
     {% if trieda %}

@@ -3,6 +3,8 @@
     {% if student %}
     <div class="container pt-3">
     <h2>Študent: {{student.meno}} {{student.priezvisko}}</h2>
+    <p>Bydlisko: {{student.ulica}}, {{student.obec}} {{student.psc}}</p>
+    <p>Dátum narodenia: {{student.datum_narodenia}}</p>
     {% endif %}
     
     {% if trieda %}
