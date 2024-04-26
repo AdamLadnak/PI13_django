@@ -12,4 +12,5 @@ urlpatterns = [
     path('studenti/<student>/', views.vypis_student, name='student'),
     path('kruzky/<kruzok>/', views.vypis_kruzok, name='kruzok'),
     path('ucitelia/<ucitel>/', views.vypis_ucitel, name='ucitel'),
+    path('pridaj_uzivatel/', views.pridaj_uzivatel, name='pridaj-uzivatel'),
 ]

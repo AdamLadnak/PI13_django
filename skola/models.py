@@ -75,3 +75,11 @@ class Uzivatel(models.Model):
     priezvisko = models.CharField(max_length=20)
     email = models.EmailField()
     datum = models.DateField()
+
+    def __str__(self):
+        return f"{self.meno} {self.priezvisko}"
+    
+    class Meta:
+        verbose_name = "Užívateľ"
+        verbose_name_plural = "Užívatelia"
+        ordering = ["priezvisko", "meno"]

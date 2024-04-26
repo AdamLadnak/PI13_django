@@ -56,3 +56,16 @@ def vypis_kruzok(request, kruzok):
     ucitel = Ucitel.objects.get(kruzok=kruzok.id)
     studenti = Student.objects.filter(kruzok=kruzok.pk)
     return render(request, "skola/kruzok_detail.html", {"kruzok":kruzok, "ucitel":ucitel, "studenti":studenti})
+
+def pridaj_uzivatel(request):
+    if request.method == "POST":
+        uzivatel = Uzivatel(
+            meno = request.POST["Meno"],
+            priezvisko = request.POST["Priezvisko"],
+            email = request.POST["Email"],
+            datum = request.POST["Datum"]
+        )
+        uzivatel.save()
+        return HttpResponse("OK")
+    else:
+        return render(request, "skola/pridaj_uzivatel.html")
