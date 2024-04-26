@@ -10,6 +10,7 @@ f = open("ULICE.csv", "r", encoding="utf8")
 lines = f.readlines()
 
 studenti = Student.objects.all()
+ucitelia = Ucitel.objects.all()
 
 for i in range(5):
     random_line = random.choice(lines)
@@ -23,3 +24,11 @@ for i in studenti:
     i.psc = f'{psc}'
     i.obec = f'{obec}'
     i.save()
+    
+for j in ucitelia:
+    random_line = random.choice(lines)
+    ulica, psc, obec = random_line.split(";")
+    j.ulica = f'{ulica} {random.randint(1,2000)}'
+    j.psc = psc
+    j.obec = obec
+    j.save()
